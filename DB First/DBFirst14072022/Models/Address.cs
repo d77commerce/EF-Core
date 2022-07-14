@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 
-#nullable disable
-
-namespace DB_First.Data.Models
+namespace SoftUni.Models
 {
-    public partial class Address
+    using System.Collections.Generic;
+    public class Address
     {
         public Address()
         {

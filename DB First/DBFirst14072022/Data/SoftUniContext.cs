@@ -1,12 +1,9 @@
-﻿using System;
-using DB_First.Data.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿
 
-#nullable disable
-
-namespace DB_First.Data
+namespace SoftUni.Data
 {
+    using Microsoft.EntityFrameworkCore;
+    using SoftUni.Models;
     public partial class SoftUniContext : DbContext
     {
         public SoftUniContext()
@@ -21,7 +18,7 @@ namespace DB_First.Data
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<EmployeesProject> EmployeesProjects { get; set; }
+        public virtual DbSet<EmployeeProject> EmployeesProjects { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
         public virtual DbSet<Town> Towns { get; set; }
 
@@ -29,6 +26,7 @@ namespace DB_First.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=SoftUni;Trusted_Connection=True;");
             }
         }
@@ -37,6 +35,8 @@ namespace DB_First.Data
         {
             modelBuilder.Entity<Address>(entity =>
             {
+                entity.HasKey(e => e.AddressId);
+
                 entity.Property(e => e.AddressId).HasColumnName("AddressID");
 
                 entity.Property(e => e.AddressText)
@@ -54,6 +54,8 @@ namespace DB_First.Data
 
             modelBuilder.Entity<Department>(entity =>
             {
+                entity.HasKey(e => e.DepartmentId);
+
                 entity.Property(e => e.DepartmentId).HasColumnName("DepartmentID");
 
                 entity.Property(e => e.ManagerId).HasColumnName("ManagerID");
@@ -72,6 +74,8 @@ namespace DB_First.Data
 
             modelBuilder.Entity<Employee>(entity =>
             {
+                entity.HasKey(e => e.EmployeeId);
+
                 entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 
                 entity.Property(e => e.AddressId).HasColumnName("AddressID");
@@ -120,7 +124,7 @@ namespace DB_First.Data
                     .HasConstraintName("FK_Employees_Employees");
             });
 
-            modelBuilder.Entity<EmployeesProject>(entity =>
+            modelBuilder.Entity<EmployeeProject>(entity =>
             {
                 entity.HasKey(e => new { e.EmployeeId, e.ProjectId });
 
@@ -143,6 +147,8 @@ namespace DB_First.Data
 
             modelBuilder.Entity<Project>(entity =>
             {
+                entity.HasKey(e => e.ProjectId);
+
                 entity.Property(e => e.ProjectId).HasColumnName("ProjectID");
 
                 entity.Property(e => e.Description).HasColumnType("ntext");
@@ -159,6 +165,8 @@ namespace DB_First.Data
 
             modelBuilder.Entity<Town>(entity =>
             {
+                entity.HasKey(e => e.TownId);
+
                 entity.Property(e => e.TownId).HasColumnName("TownID");
 
                 entity.Property(e => e.Name)

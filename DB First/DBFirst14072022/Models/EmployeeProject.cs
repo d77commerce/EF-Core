@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-
-#nullable disable
-
-namespace DB_First.Data.Models
+﻿namespace SoftUni.Models
 {
-    public partial class EmployeesProject
+    public class EmployeeProject
     {
         public int EmployeeId { get; set; }
         public int ProjectId { get; set; }

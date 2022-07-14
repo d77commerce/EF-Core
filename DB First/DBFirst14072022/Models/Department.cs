@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 
-#nullable disable
-
-namespace DB_First.Data.Models
+namespace SoftUni.Models
 {
-    public partial class Department
+    using System.Collections.Generic;
+    public class Department
     {
         public Department()
         {
