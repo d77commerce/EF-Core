@@ -5,7 +5,7 @@ using SoftUni.Data;
 
 namespace SoftUni
 {
-    internal class StartUp
+    public class StartUp
     {
         static void Main(string[] args)
         {
@@ -19,7 +19,7 @@ namespace SoftUni
             StringBuilder output = new StringBuilder();
             var allEmplloyees = context.Employees
                 .OrderBy(e => e.EmployeeId)
-                .Where(n=>n.FirstName =="Guy")
+               
                 .ToArray();
             foreach (var e in allEmplloyees)
             {

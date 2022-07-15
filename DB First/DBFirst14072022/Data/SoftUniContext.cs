@@ -4,7 +4,7 @@ namespace SoftUni.Data
 {
     using Microsoft.EntityFrameworkCore;
     using SoftUni.Models;
-    public partial class SoftUniContext : DbContext
+    public  class SoftUniContext : DbContext
     {
         public SoftUniContext()
         {
@@ -175,9 +175,9 @@ namespace SoftUni.Data
                     .IsUnicode(false);
             });
 
-            OnModelCreatingPartial(modelBuilder);
+           
         }
 
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+         
     }
 }
