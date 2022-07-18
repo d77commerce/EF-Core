@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using SoftUni.Data;
+using SoftUni.Models;
 
 namespace SoftUni
 {
@@ -16,8 +17,11 @@ namespace SoftUni
             // string res2 = GetEmployeesWithSalaryOver50000(dbContext);
             //  Console.WriteLine(res2);
 
-            string rez3 = GetEmployeesFromResearchAndDevelopment(dbContext);
-            Console.WriteLine(rez3);
+           // string rez3 = GetEmployeesFromResearchAndDevelopment(dbContext);
+            //Console.WriteLine(rez3);
+
+            string rez4 = AddNewAddressToEmployee(dbContext);
+            Console.WriteLine(rez4);
         }
 
         // 3.	Employees Full Information
@@ -83,6 +87,36 @@ namespace SoftUni
             }
 
             return sb.ToString().TrimEnd();
+        }
+
+        //6.	Adding a New Address and Updating Employee
+
+        public static string AddNewAddressToEmployee(SoftUniContext context)
+        {
+            StringBuilder builder = new StringBuilder();
+
+            var AddNew = new Address()
+            {
+                AddressText = "Vitoshka 15",
+                AddressId = 4
+            };
+            context.Addresses.Add(AddNew);
+            Employee nakov = context.Employees.First(l => l.LastName == "Nakov");
+            nakov.Address = AddNew;
+            context.SaveChanges();
+            var adresTop10 = context.Employees
+                .OrderByDescending(a => a.AddressId)
+                .Take(10)
+                .Select(e => new
+                {
+                    e.Address.AddressText
+                })
+                .ToArray();
+            foreach (var address in adresTop10)
+            {
+                builder.AppendLine($"{address}");
+            }
+            return builder.ToString().TrimEnd();
         }
     }
 }
