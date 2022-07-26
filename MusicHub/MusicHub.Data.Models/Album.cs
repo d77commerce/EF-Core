@@ -2,12 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace MusicHub.Data.Models
 {
     public class Album
     {
         private decimal _price;
+
+        public Album()
+        {
+          this.Songs = new HashSet<Song>();
+        }
         public int Id { get; set; }
 
         [StringLength(40)]
@@ -23,8 +29,10 @@ namespace MusicHub.Data.Models
             get => _price;
             set
             {
-                var collection = new ICollection<Song>();
+                _price = Songs.Sum(s => s.Price);
             } 
         }
+
+        public virtual ICollection<Song> Songs{ get; set; }
     }
 }
