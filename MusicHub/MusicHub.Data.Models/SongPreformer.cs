@@ -11,6 +11,10 @@ namespace MusicHub.Data.Models
 
         public int PreformerId { get; set; }
 
+        public Song song { get; set; }
+
+        public Performer preformer { get; set; }
+
 
     }
 }

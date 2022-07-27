@@ -7,6 +7,10 @@ namespace MusicHub.Data.Models
 {
     public class Producer
     {
+        public Producer()
+        {
+            this.Albums = new List<Album>();
+        }
         public int Id { get; set; }
         [Required]
         [StringLength(30)]
@@ -15,6 +19,8 @@ namespace MusicHub.Data.Models
         public string Pseudonym { get; set; }
 
         public string PhoneNumber { get; set; }
+
+
 
         public ICollection<Album> Albums { get; set; }
 

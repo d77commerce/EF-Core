@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using MusicHub.Data.Models.Resurce;
 
 namespace MusicHub.Data.Models
@@ -21,11 +22,14 @@ namespace MusicHub.Data.Models
 
         public int AlbumId { get; set; }
 
-        public string Album { get; set; }
+        [ForeignKey(nameof(AlbumId))]
+        public Album Album { get; set; }
+
         [Required]
         public int WriterId { get; set; }
 
-        public string Writer { get; set; }
+        [ForeignKey(nameof(WriterId))]
+        public Writer Writer { get; set; }
         [Required]
         public decimal Price { get; set; }
 

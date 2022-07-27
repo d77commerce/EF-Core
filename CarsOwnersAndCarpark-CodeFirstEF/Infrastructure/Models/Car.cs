@@ -13,12 +13,12 @@ namespace Infrastructure.Models
         [Key]
         public int Id { get; set; }
         [StringLength(50)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         public int OwnerId { get; set; }
 
         [ForeignKey(nameof(OwnerId))]
-        public Owner ownerOfCar { get; set; }
+        public Owner owner { get; set; }
         public ICollection<CarsParkings> CarsParkings { get; set; }
     }
 }

@@ -12,9 +12,9 @@ namespace Infrastructure.Models
         [Key]
         public int Id { get; set; }
         [StringLength(50)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
-        public int BirthDey { get; set; }
+        public int BirthDay { get; set; }
 
         public List<Car> Cars { get; set; }
 
