@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace MusicHub.Data.Models
@@ -32,6 +33,11 @@ namespace MusicHub.Data.Models
                 _price = Songs.Sum(s => s.Price);
             } 
         }
+
+        public int ProducerId { get; set; }
+
+        [ForeignKey(nameof(ProducerId))]
+        public virtual Producer Producer { get; set; }
 
         public virtual ICollection<Song> Songs{ get; set; }
     }

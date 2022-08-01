@@ -20,7 +20,7 @@ namespace MusicHub.Data.Models
         [Required]
         public decimal NetWorth { get; set; }
 
-        public int MyProperty { get; set; }
+        public virtual ICollection<SongPerformer> PreformerSong { get; set; }
 
     }
 }

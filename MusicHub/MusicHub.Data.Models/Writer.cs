@@ -7,7 +7,7 @@ namespace MusicHub.Data.Models
 {
    public class Writer
     {
-
+        [Key]
         public int Id { get; set; }
         [Required]
         [StringLength(20)]
@@ -15,7 +15,7 @@ namespace MusicHub.Data.Models
 
         public string Pseudonym { get; set; }
 
-        public ICollection<Song> Songs { get; set; }
+        public virtual ICollection<Song> Songs { get; set; }
 
     }
 }
