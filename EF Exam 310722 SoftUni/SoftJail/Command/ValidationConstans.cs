@@ -6,8 +6,8 @@ namespace SoftJail.Command
 {
     public class ValidationConstans
     {
-        public const int PesnterMaxLengh = 30;
-        public const int PesnterMinLengh = 3;
+        public const int PrisonerNameMax = 20;
+        public const int PrisonerNameMin = 3;
 
 
         public const int OfficerNameMax = 30;
