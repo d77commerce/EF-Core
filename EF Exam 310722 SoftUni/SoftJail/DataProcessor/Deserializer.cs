@@ -48,7 +48,7 @@
                     department.Cells.Add(cell);
                 }
                 validDepartments.Add(department);
-                sb.AppendLine($"Imported{department.Name} with {department.Cells}");
+                sb.AppendLine($"Imported{department.Name} with {department.Cells.Count} cells");
             }
 
             context.Departments.AddRange(validDepartments);

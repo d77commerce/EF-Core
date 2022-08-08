@@ -15,5 +15,8 @@ namespace SoftJail.Command
 
         public const int DepartmentMax = 25;
         public const int DepartmentMin = 3;
+
+        public const string DecimalMin = "0";
+        public const string DecimalMax = "79228162514264337593543950335";
     }
 }

@@ -1,11 +1,11 @@
 Invalid Data
 Invalid Data
 Invalid Data
-ImportedCybersecurity with System.Collections.Generic.HashSet`1[SoftJail.Data.Models.Cell]
-ImportedStackOverflow with System.Collections.Generic.HashSet`1[SoftJail.Data.Models.Cell]
-ImportedBlockchain with System.Collections.Generic.HashSet`1[SoftJail.Data.Models.Cell]
-ImportedWebSecurity with System.Collections.Generic.HashSet`1[SoftJail.Data.Models.Cell]
-ImportedArtificialIntelligence with System.Collections.Generic.HashSet`1[SoftJail.Data.Models.Cell]
+ImportedCybersecurity with 5 cells
+ImportedStackOverflow with 4 cells
+ImportedBlockchain with 7 cells
+ImportedWebSecurity with 4 cells
+ImportedArtificialIntelligence with 6 cells
 Invalid Data
-ImportedDeepWeb with System.Collections.Generic.HashSet`1[SoftJail.Data.Models.Cell]
+ImportedDeepWeb with 8 cells
 Invalid Data
