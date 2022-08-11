@@ -8,6 +8,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Globalization;
     using System.Linq;
     using System.Text;
 
@@ -23,7 +24,7 @@
 
             foreach (var depDto in departmenDtos)
             {
-                if  (!IsValid(depDto))
+                if (!IsValid(depDto))
                 {
                     sb.AppendLine($"Invalid Data");
                     continue;
@@ -58,7 +59,38 @@
 
         public static string ImportPrisonersMails(SoftJailDbContext context, string jsonString)
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            ImportPrisonersAndMailsDto[] prisonersDtos =
+                JsonConvert.DeserializeObject<ImportPrisonersAndMailsDto[]>(jsonString);
+
+            foreach (var prisonerDto in prisonersDtos)
+            {
+                if (!IsValid(prisonerDto))
+                {
+                    sb.AppendLine($"Invalid Data");
+                    continue;
+                }
+
+                if (!IsValid(prisonerDto.Mails))
+                {
+                    sb.AppendLine($"Invalid Data");
+                    continue;
+                }
+                if (prisonerDto.Mails.Any(mDto => !IsValid(mDto)))
+                {
+                    sb.AppendLine($"Invalid Data");
+                    continue;
+                }
+
+                bool isValidIncarcerationDate = DateTime.TryParseExact(prisonerDto.IncarcerationDate, "dd,MM,yyyy",
+                    CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime incarcerationDate);
+
+            }
+
+
+
+            return "one";
         }
 
         public static string ImportOfficersPrisoners(SoftJailDbContext context, string xmlString)
